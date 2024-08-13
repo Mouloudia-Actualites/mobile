@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouloudia Actualités - أخبار مولودية الجزائر</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="mca.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Inline Styles -->
+    <style>
+        html, body {
+            height: 70%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', Arial, sans-serif;
+            color: #343a40;
+            background-image: url("bmq.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        
+        .navbar {
+            background-color: #054e3c;
+        }
+        
+        .navbar-brand img {
+            width: 50px;
+        }
+        
+        .navbar-dark .navbar-toggler {
+            border: none;
+            color: white;
+        }
+        
+        .navbar-dark .navbar-toggler-icon {
+            color: white;
+            width: 44px;
+            height: 27px;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: #000;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+            text-align: right;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            background-size: cover;
+            background-position: center;
+            color: #000;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .fullscreen-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #054e3c;
+            z-index: 1000;
+            display: none;
+            overflow-y: auto;
+        }
+        
+        .fullscreen-menu.open {
+            display: block;
+        }
+        
+        .fullscreen-menu-content {
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            transform: translate(0, 0);
+            text-align: right;
+        }
+        
+        .fullscreen-menu-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .fullscreen-menu-content ul li {
+            margin-bottom: 10px;
+        }
+        
+        .fullscreen-menu-content ul li a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 10px;
+        }
+        
+        .fullscreen-menu-content ul li a:hover {
+            color: #ccc;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 2px;
+            left: 10px;
+            color: #fff;
+            font-size: 50px;
+            cursor: pointer;
+        }
+        
+        .container1 {
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        
+        .social-button {
+            background-color: #04372a;
+            border: 2px solid #000;
+            border-radius: 30px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .social-button:hover {
+            background-color: #fff;
+            transform: scale(1.05);
+            color:#000;
+        }
+        
+        .social-button img {
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        
+        .social-button.youtube img {
+            width: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        
+        .social-button .button-text {
+            flex: 1;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .button {
+    margin-top: 20px; /* Tu peux ajuster la valeur (20px) pour obtenir l'espace souhaité */
+}
+        footer {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        /* Full-Section Background */
+        .full-background {
+           background-image: url(bmq.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container">
+                <div class="navbar-brand mr-auto">
+                    <img src="logo.png" alt="MCA Logo">
+                </div>
+                <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <span class="close-btn">&times;</span>
+        <div class="fullscreen-menu-content">
+            <ul><br><br><br>
+                <li><a href="nous.html">الصفحة الرئيسية</a></li><br>
+                <li><a href="index.html">موقعنا الرسمي</a></li><br>
+                <li><a href="index1.html">من نحن</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="container1">
+        <a class="social-button facebook" href="https://www.facebook.com/profile.php?id=61563005763935">
+            <img src="ff.png" alt="Facebook Logo">
+            <span class="button-text">FACEBOOK</span>
+        </a><br>
+        <a class="social-button instagram" href="https://www.instagram.com/mcaactoffc">
+            <img src="ii.png" alt="Instagram Logo">
+            <span class="button-text">INSTAGRAM</span>
+        </a><br>
+        <a class="social-button telegram" href="https://t.me/elassima">
+            <img src="tt.png" alt="Telegram Logo">
+            <span class="button-text">TELEGRAM</span>
+        </a><br>
+        <a class="social-button youtube" href="https://www.youtube.com/@mouloudiaactualites">
+            <img src="yyy.png" alt="YouTube Logo">
+            <span class="button-text">YOUTUBE</span>
+        </a>
+    </div><br><br>
+
+    <!-- Footer Section -->
+  <footer class="text-center py-4">
+        <p>&copy; 2024 Mouloudia Actualités. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Dark Mode Toggle Script -->
+    <script>
+        $(document).ready(function() {
+            // Toggle fullscreen menu
+            $('.navbar-toggler').click(function() {
+                $('#fullscreenMenu').toggleClass('open');
+            });
+
+            // Close the fullscreen menu when clicking outside of it
+            $(document).mouseup(function(e) {
+                var container = $("#fullscreenMenu");
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    container.removeClass('open');
+                }
+            });
+
+            // Close the fullscreen menu when close button is clicked
+            $('.close-btn').click(function() {
+                $('#fullscreenMenu').removeClass('open');
+            });
+        });
+
+        const body = document.body;
+        const navbarBrand = document.querySelector('.navbar-brand');
+
+        navbarBrand.addEventListener('click', function() {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+        
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+     <meta charset="UTF-8">
+       <meta name="monetag" content="d3341518b1fced5f46d5df4163665fbc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouloudia Actualités - أخبار الرياضة والنتائج المباشرة</title>
+    <meta name="description" content="Sports News and Live Scores">
+     <link rel="manifest" href="/manifest.json">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="mca.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9568912999082528"
+     crossorigin="anonymous"></script>
+       <script async src="https://www.googletagmanager.com/gtag/js?id=G-M69GBTEGBN"></script>
+    <style>
+             /* Your CSS styles here */
+/* General styles */
+/* General styles */
+   body {
+            font-family: 'Cairo', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            transition: background-color 0.5s, color 0.5s;
+            position: relative; /* Ensure body has relative position for absolute positioning */
+        }
+         .arabic-date {
+    font-family: 'Times New Roman', Times, serif; /* Specify different font for date */
+}
+
+        .navbar {
+          background-image: url('green.jpg');
+        }
+
+        .navbar-brand img {
+            width: 60px; /* Adjust logo size for larger screens */
+        }
+
+        .navbar-dark .navbar-toggler {
+            border: none;
+            color: white;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+      color:white;
+            width: 24px;
+            height: 17px;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #000;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+            text-align: right; /* Right-align text */
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+       /* Fullscreen menu styles */
+        .fullscreen-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            z-index: 1000; /* Ensure it's above other content */
+            display: none; /* Initially hidden */
+            overflow-y: auto; /* Enable scrolling */
+        }
+
+        .fullscreen-menu.open {
+            display: block; /* Display when open */
+        }
+
+        .fullscreen-menu-content {
+            position: absolute;
+            top: 6px; /* Adjust as needed */
+            right: 10px; /* Adjust as needed */
+            transform: translate(0, 0); /* Adjust as needed */
+            text-align: right; /* Right-align text */
+        }
+
+        .fullscreen-menu-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .fullscreen-menu-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .fullscreen-menu-content ul li a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 10px;
+        }
+
+        .fullscreen-menu-content ul li a:hover {
+            color: #ccc;
+        }
+     .close-btn {
+    position: absolute;
+    top: 2px; /* تعديل حسب الحاجة */
+    left: 10px; /* تعديل لتحديد الزاوية اليسرى */
+    color: #fff; /* تعديل لون النص */
+    font-size: 50px; /* تعديل حجم الخط */
+    cursor: pointer;
+}      
+        
+        body[dir="rtl"] {
+              font-family: 'Cairo', Arial, sans-serif;
+        }
+        
+        
+        
+      .live-scores-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    
+}
+
+.match {
+    margin-bottom: 40px;
+       background-image: url('dd.jpg');
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     color:white;
+}
+
+.match h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+         .match h21 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+}
+
+.team img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: bold;
+       text-align: center;
+}
+
+.status {
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.match .team-name {
+    font-size: 1rem;
+    margin-left: 10px;
+}
+ @media (max-width: 768px) {
+            .live-scores-section {
+                padding: 20px 0; /* Reduce vertical spacing */
+            }
+
+            .match {
+                padding: 15px; /* Reduce inner padding */
+            }
+
+            .match h2 {
+                font-size: 1.2rem; /* Reduce title size */
+                margin-bottom: 8px; /* Reduce bottom margin of title */
+            }
+       .match h21 {
+                font-size: 1.0rem; /* Reduce title size */
+                margin-bottom: 8px; /* Reduce bottom margin of title */
+            }
+
+            .match .teams {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .match .teams .team {
+                margin-bottom: 5px; /* Reduce space between teams */
+            }
+
+            .match .teams .team img {
+                width: 25px; /* Reduce logo size */
+                height: 25px;
+                margin-right: 5px; /* Reduce space between logo and text */
+            }
+
+            .match .score {
+                font-size: 1.2rem; /* Reduce score size */
+            }
+
+            .match .status {
+           
+            }
+        }
+        
+        /* Dark Mode Styles */
+        
+        body.dark-mode {
+            background-color: #22262a;
+            color: #fff;
+        }
+        
+        body.dark-mode .navbar {
+            background-color:#0b0d0e;
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        body.dark-mode .match {
+            background-color: #0d0d0d;
+            border-color: #757575;
+            color: #fff;
+        }
+        
+        body.dark-mode .match .score {
+            color: #fff;
+        }
+        
+        /* Media Query for Mobile Devices */
+        
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                width: 40px;
+            }
+            
+
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            background-color:white;
+            background-size: cover;
+            background-position: center;
+            color: #000;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding:20px 0;
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-primary {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+        
+        .feature {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .feature img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 5px;
+         }
+        /* Section for Social Icons */
+        
+        .social-icons {
+            text-align: center;
+            margin-top: 20px;
+        
+         }
+        .social-icons a {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #343a40;
+            transition: color 0.3s;
+        }
+        
+      .authors-section {
+    background-image: url('green.jpg');
+    color: #fff;
+    padding: 50px 0;
+}
+
+.author {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.author img {
+    width: auto;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.author h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.author p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+          
+      .authors-section {
+    background-image: url('green.jpg');
+    color: #fff;
+    padding: 50px 0;
+}
+
+.author {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.author img {
+     border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 90px; /* Fixed width for the images */
+    height: 90px; /* Fixed height for the images */
+    margin-left: 15px; /* Space between image and text */
+}
+
+.author h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.author p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+.author1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.author img {
+  border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 140px; /* Fixed width for the images */
+    height: 140px; /* Fixed height for the images */
+    margin-left: 15px; /* Space between image and text */
+}
+
+.author h31 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.author p1 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+}
+
+        
+        /* Dark Mode Styles */
+        
+        body.dark-mode {
+            background-color: #343a40;
+            color: #fff;
+        }
+        
+        body.dark-mode .navbar {
+            background-color: #212529;
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        body.dark-mode .hero {
+            background-color: #343a40;
+            color: #fff;
+        }
+        
+        body.dark-mode .btn-primary {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        
+        body.dark-mode .btn-primary:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+        
+        body.dark-mode .feature {
+            background-color: #424242;
+            border-color: #757575;
+            color: #fff;
+        }
+        
+        body.dark-mode .social-icons a {
+            color: #fff;
+        }
+        
+        body.dark-mode .authors-section {
+            background-color: #212529;
+            color: #fff;
+        }
+        
+        /* Blogs Section */
+        
+        .blogs-section {
+            padding: 60px 0;
+            background-color: ; /* Gris avec 50% de transparence */
+            text-align: center;
+        }
+        
+        .blog {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+           background-color: rgba(255, 255, 0, 0.5);
+           background-color:  hsla(0, 0%, 0%, 0); 
+        } 
+        .blog img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .blog h3 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: black;
+        }
+        
+        .blog:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Footer Section */
+        
+        footer {
+     
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+             .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+         /* Center text horizontally within .center-container */
+        }
+        h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cairo', Arial, sans-serif;
+}
+        /* Add this to your CSS file or <style> block */
+.btn-white {
+    background-color: #343a40; /* White background */
+    color: white; /* Black text color */
+    border: 1px solid black; /* Black border */
+    padding: 10px 20px; /* Padding for the button */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline from text */
+    display: inline-block; /* Inline-block display */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.btn-white:hover {
+    background-color: white; /* Black background on hover */
+    color: black; /* White text color on hover */
+}
+/* Base styles for news container */
+.news {
+    display: flex; /* Arrange items in a column */
+    flex-direction: column;
+    gap: 20px; /* Space between news items */
+}
+
+.news {
+    display: flex; /* Makes items align in a row */
+    flex-direction: column; /* Makes items align in a column */
+    gap: 20px; /* Space between news items */
+}
+
+.news-item {
+     display: flex; /* Aligns image and text side by side */
+    align-items: center; /* Centers items vertically */
+     background-image: url('dd.jpg');
+    padding: 15px; /* Padding inside each news item */
+    border-radius: 8px; /* Rounded corners for news items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for news items */
+    transition: transform 0.2s; /* Smooth hover effect */
+    margin-bottom: 20px; /* Space between each news item */
+    border: 1px solid ; /* Border around news items */
+    width: calc(100% - 30px); /* Adjust width to fit within page boundaries */
+       margin: 20px auto;
+}
+.news-item:hover {
+    transform: translateY(-3px); /* Move the item up slightly on hover */
+}
+
+.news-item img {
+    width: 140px; /* Fixed width for the images */
+    height: 140px; /* Fixed height for the images */
+    margin-right: 15px; /* Space between image and text */
+}
+
+.news-text {
+    flex: 1; /* Let text take remaining space */
+}
+
+.news-text h2 {
+    font-size: 1.2em; /* Font size for headlines */
+    color: #fff; /* Text color */
+    margin: 0 0 10px; /* Space below the headline */
+    cursor: pointer; /* Pointer cursor for clickable elements */
+}
+
+.news-text p {
+    font-size: 0.9em; /* Font size for the date */
+    color: #666; /* Text color for date */
+    margin: 0; /* Removes default margin */
+}
+
+
+.news-ite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('mmb.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px; /* Reduce padding for smaller screens */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+    width: calc(100% - 40px); /* Adjust width to fit page constraints */
+    margin: 10px auto; /* Reduce margin for smaller screens */
+    position: relative; /* Ensure relative positioning */
+}
+
+.news-ite::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    border-radius: 8px;
+}
+
+/* Ensure text within .news-item is readable */
+.news-ite h1, .news-ite p {
+    color: #fff; /* Adjust text color for readability */
+    z-index: 1; /* Ensure text is above the overlay */
+}
+         .news-link {
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit text color */
+}
+
+@media (max-width: 700px) {
+    .news-ite {
+        flex-direction: column; /* Empiler les éléments verticalement sur les écrans plus petits */
+        text-align: center; /* Centrer le texte sur les écrans plus petits */
+        padding: 15px; /* Ajuster le padding pour les écrans plus petits */
+        margin: 10px auto; /* Ajuster la marge pour les écrans plus petits */
+    }
+    
+    .news-ite::after {
+        content: ""; /* Ajouter un pseudo-élément pour conserver le ratio de l'image */
+        display: block;
+        padding-top: 56.25%; /* Ratio 16:9 (hauteur / largeur) pour une image responsive */
+    }
+}
+
+.news-ite:hover {
+    transform: scale(1.02); /* Slightly enlarges the item on hover */
+}
+
+.news-ite img {
+    width: 100px; /* Fixed width for the images */
+    height: auto; /* Maintains aspect ratio */
+    margin-right: 20px; /* Space between image and text */
+    border-radius: 8px; /* Rounded corners for images */
+    z-index: 1; /* Ensure image stays above background */
+}
+
+.news-tex {
+position: sticky;
+top: 20px;/* Space below .news-tex */
+}
+.news-tex h2 {
+    font-size: 2.2em; /* Font size for headlines */
+    color: #fff; /* Text color */
+    margin: 0 0 10px; /* Space below the headline */
+    cursor: pointer; /* Pointer cursor for clickable elements */
+    position: relative;
+     top: 160px; left: 10px; 
+ text-shadow: 0 2px 4px rgba(0, 0, 1, 1.7); /* Darker drop shadow under h2 */
+       direction: rtl;
+}
+
+.news-tex p {
+    font-size: 1.2em; /* Font size for the date */
+    color: #666; /* Text color for date */
+    margin: 0; /* Removes default margin */
+     position: relative;
+  top: 110px; left: 20px; 
+}
+ 
+      .custom-icon {
+            width: 24px; /* Adjust as per your icon size */
+            height: 24px;
+            margin-left: 10px; /* Adjust spacing */
+        }  
+         .ellipsis {
+    /* Style pour les points de suspension */
+    font-size: 24px; /* Taille de police (ajustez selon vos besoins) */
+    color: #fff; /* Couleur du texte */
+    margin-left: 5px; /* Marge à gauche pour l'espace entre le texte et les points de suspension */
+}
+ 
+    </style>
+</head>
+     <!-- Default Statcounter code for Actualites-Mouloudia
+https://mouloudia-actualites.github.io/Actualites-Mouloudia- -->
+<script type="text/javascript">
+var sc_project=13023397; 
+var sc_invisible=1; 
+var sc_security="202aac1f"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13023397/0/202aac1f/1/" alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+<body>
+   
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container">
+                <div class="navbar-brand mr-auto">
+                    <img src="logo.png" alt="MCA Logo">
+                </div>
+                <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <span class="close-btn">&times;</span><br><br>
+        <div class="fullscreen-menu-content">
+            <ul>
+    <br><br>  <li><a href="index.html">الصفحة الرئيسية</a></li>
+                <li><a href="news1.html">أخبار</a></li>
+                <li><a href="first1.html">الفريق الأول</a></li>
+                <li><a href="reserve1.html">فريق الرديف</a></li>
+                <li><a href="histoir1.html">تاريخ مولودية الجزائر</a></li>
+                  <li><a href="idr1.html">الطاقم الفني </a></li>
+                <li><a href="live1.html">نتائج مباشرة</a></li>
+                <li><a href="video1.html">أشرطة فيديو</a></li>
+                <li><a href="contac1.html">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </div>
+
+   <!-- Hero Section -->
+<section class="hero">
+    <div class="news">
+        <div class="news-ite">
+            <div class="news-tex">
+      <a href="new1.html" class="news-link">
+    <h2>نجح مدير الفئات الشبانية لنادي في<span class="ellipsis">...</span></h2>
+</a>
+
+            
+            </div>
+        </div>
+    </div>
+
+        
+        <div class="news-item">
+            <img src="ffrr.jpg" alt="News Image">
+            <div class="news-text">
+               <a href="firs1.html" class="transparent-button">
+                    <h2>عودة معشوقة الشناوة الى ملاعب<h2>
+</a>
+
+                <p>2024-8-13|برنجي اسماء</p>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <img src="db.jpg" alt="News Image">
+            <div class="news-text">
+             <a href="reser1.html" class="transparent-button"> <h2>لازال للمجد بقية</h2></a>
+                <p>2024-08-7|اسماء</p>
+            </div>
+        </div>
+    </div>
+</section><br>
+
+<br> <section class="image-before-icons">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <img src="mca2.jpg" class="img-fluid" alt="Image Description" >
+                </div>
+            </div>
+        </div>
+    </section><br>
+
+
+    <section class="live-scores-section"  >
+        <div class="container">
+            <div class="match">
+         <h2>كأس الجزائر <img src="coup.png" alt="Custom Icon 1" class="custom-icon"></h2>
+                <h21>لعبت</h21>
+                <div class="teams">
+                    <div class="team">
+                        <img src="mcca.png" alt="شعار مولودية الجزائر">
+                        <span class="team-name">مولودية الجزائر</span>
+                    </div>
+                    <div class="score">0 - 1</div>
+                    <div class="team">
+                        <span class="team-name">شباب بلوزداد</span>
+                        <img src="crb.png" alt="شعار شباب بلوزداد">
+                    </div>
+                </div>
+                <div class="status">
+                  2024/7/29<br>
+                    ملعب 5 جويلية 1962 الجزائر 
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="match">
+                <h2>دوري ابطال افريقيا<img src="afr.png" alt="Custom Icon 1" class="custom-icon"></h2>
+                 <h21>لم تلعب بعد</h21>
+                <div class="teams">
+                    <div class="team">
+                        <img src="https://file.mackolikfeeds.com/teams/24163" alt="شعار مولودية الجزائر">
+                        <span class="team-name">واتانجا</span>
+                    </div>
+                       <div class="score">0 - 0</div>
+                    <div class="team">
+                        <span class="team-name">مولودية الجزائر</span>
+                        <img src="mcca.png" alt="شعار شباب بلوزداد">
+                    </div>
+                </div>
+                <div class="status">
+                   2024/8/18<br>
+           ملعب 5 جويلية 1962 الجزائر 
+                </div>
+            </div>
+        </div>
+    </section>
+  <br>   <section class="image-before-icons">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <img src="site1.jpg" class="img-fluid" alt="Image Description">
+                </div>
+            </div>
+        </div>
+     </section>
+    <!-- Social Icons Section -->
+    <section class="social-icons">
+        <div class="container">
+            <a href="https://www.facebook.com/mouloudianiyouten.21.mca"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mcaactoffc/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@mouloudiaactualites"><i class="fab fa-youtube"></i></a>
+        </div>
+    </section>
+
+   <section class="authors-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="author">
+                    <a href="contact1.html" target="_blank">
+                        <img src="logo.png" class="img-fluid" alt="Admin">
+                    </a>
+                    <h1>Mohamed</h1>
+                    <p>Admin</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="author">
+                    <a href="https://iliesso-devloper.github.io/about-me/" target="_blank">
+                        <img src="11.png" class="img-fluid1" alt="Développeur" >
+                    </a>
+                    <h1>Iliesso</h1>
+                    <p>Developer</p>
+                </div>
+                 <footer class="text-center py-4">
+    <p>&copy; 2024 Mouloudia Actualités. جميع الحقوق محفوظة.</p>
+</footer>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+       // Script to toggle dark mode
+        const logo = document.querySelector('.navbar-brand img');
+        const body = document.body;
+        const viewMenu = document.querySelector('.navbar-collapse');
+
+        logo.addEventListener('click', function () {
+            body.classList.toggle('dark-mode');
+            
+        });
+                // JavaScript to toggle fullscreen menu
+        $(document).ready(function () {
+            $('.navbar-toggler').click(function () {
+                $('#fullscreenMenu').toggleClass('open');
+            });
+
+            // Close the menu when clicking outside of it
+            $(document).mouseup(function (e) {
+                var container = $("#fullscreenMenu");
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    container.removeClass('open');
+                }
+            });
+
+            // Close the menu when close button is clicked
+            $('.close-btn').click(function () {
+                $('#fullscreenMenu').removeClass('open');
+            });
+        });
+        // Remove previously mentioned dark mode toggle button event
+        const toggleButton = document.querySelector('.btn-primary');
+        toggleButton.parentNode.removeChild(toggleButton);
+         function onScroll (evt) {
+
+    // Store the scroll value for laterz.
+    lastScrollY = window.scrollY;
+
+    // Prevent multiple rAF callbacks.
+    if (scheduledAnimationFrame)
+    return;
+
+    scheduledAnimationFrame = true;
+    requestAnimationFrame(readAndUpdatePage);
+}
+
+window.addEventListener('scroll', onScroll);
+window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-M69GBTEGBN');
+    </script>
+</body>
+
+</html>
+
+</html>

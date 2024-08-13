@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouloudia Actualités - أخبار مولودية الجزائر</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="mca.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <style>
+    <style>
+        /* Global styles */
+         body {
+            font-family: 'Cairo', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #000;
+            transition: background-color 0.5s, color 0.5s;
+            position: relative; /* Ensure body has relative position for absolute positioning */
+        }
+         footer {
+            background-image: url('green.jpg');
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+             .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+         /* Center text horizontally within .center-container */
+        }
+
+     .navbar {
+          background-image: url('green.jpg');
+        }
+
+        .navbar-brand img {
+            width: 60px; /* Adjust logo size for larger screens */
+        }
+
+        .navbar-dark .navbar-toggler {
+            border: none;
+            color: white;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+      color:white;
+            width: 24px;
+            height: 17px;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #000;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+            text-align: right; /* Right-align text */
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+         @media (max-width: 768px) {
+            .navbar-brand img {
+                width: 40px;
+            }
+            
+           
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            background-color:white;
+            background-size: cover;
+            background-position: center;
+            color: #000;
+            text-align: center;
+            padding: 80px 0;
+        }
+        /* Fullscreen menu styles */
+        .fullscreen-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            z-index: 1000; /* Ensure it's above other content */
+            display: none; /* Initially hidden */
+            overflow-y: auto; /* Enable scrolling */
+        }
+
+        .fullscreen-menu.open {
+            display: block; /* Display when open */
+        }
+
+        
+        .fullscreen-menu-content {
+    position: absolute;
+    top: 6px; /* تعديل حسب الحاجة */
+    right: 10px; /* تعديل حسب الحاجة */
+    transform: translate(0, 0); /* تعديل حسب الحاجة */
+    text-align: right; /* توجيه النص إلى اليمين */
+}
+
+
+        .fullscreen-menu-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .fullscreen-menu-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .fullscreen-menu-content ul li a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 10px;
+        }
+
+        .fullscreen-menu-content ul li a:hover {
+            color: #ccc;
+        }
+
+       .close-btn {
+    position: absolute;
+    top: 2px; /* تعديل حسب الحاجة */
+    left: 10px; /* تعديل لتحديد الزاوية اليسرى */
+    color: #fff; /* تعديل لون النص */
+    font-size: 50px; /* تعديل حجم الخط */
+    cursor: pointer;
+}      
+        
+        .news-section {
+            padding: 80px 0;
+        }
+        
+        .article {
+            margin-bottom: 40px;
+            text-align: right; /* Align text to right */
+        }
+        
+        .article img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: right; /* Align heading to right */
+        }
+        
+        .article p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            /* Text alignment to right is handled automatically with dir="rtl" */
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        
+        .btn-primary:focus {
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+        }
+        
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #212529;
+            color: #fff; /* Green text */
+        }
+        
+        body.dark-mode .navbar {
+            background-color: #212529;
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link {
+            color: #fff; /* Red text */
+        }
+        
+        body.dark-mode .navbar-dark .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        body.dark-mode .explore-more {
+            background-color: #343a40; /* Dark grey background */
+            border-color: #6c757d; /* Medium grey border */
+            color: #fff; /* Green text */
+            padding: 20px;
+        }
+        h2,p {
+             font-family: 'Cairo', Arial, sans-serif;
+        }
+    </style>
+</head>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<body>
+    <!-- Header with Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container">
+                <div class="navbar-brand mr-auto">
+                    <img src="logo.png" alt="MCA Logo">
+                </div>
+                <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+  <!-- Fullscreen Menu -->
+   <div class="fullscreen-menu" id="fullscreenMenu">
+    <span class="close-btn">&times;</span><!-- زر الإغلاق في سطر واحد مع فاصل -->
+    <div class="fullscreen-menu-content">
+        <ul><br><br>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="news1.html">أخبار</a></li>
+            <li><a href="first1.html">الفريق الأول</a></li>
+            <li><a href="reserve1.html">فريق الرديف</a></li>
+            <li><a href="histoir1.html">تاريخ مولودية الجزائر</a></li>
+            <li><a href="live1.html">طاقم اداري و الفني</a></li>
+            <li><a href="live1.html">نتائج مباشرة</a></li>
+            <li><a href="video1.html">أشرطة فيديو</a></li>
+            <li><a href="contac1.html">تواصل معنا</a></li>
+        </ul>
+    </div>
+</div>
+
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- First Article -->
+                    <article class="article">
+                        <h2 style="text-align: right;">: الطاقم الفني للفريق</h2><br>
+                        <img src="entr.jpg" alt="صورة المقالة 1">
+                        <p>أمير باتريس بوميل ◀️ مدرب الفريق</p>
+                        
+                    </article>
+                    <!-- Second Article -->
+                    <article class="article">
+                        <img src="aid.jpg" alt="صورة المقالة 2">
+                        <p>سعد إشعلالن ◀️ مساعد مدرب</p>
+                    </article>
+                    <article class="article">
+                        <img src="gk.jpg" alt="صورة المقالة 2">
+                        <p>فؤاد شريط ◀️ مدرب حراس</p>
+                       
+                    </article>
+                    <article class="article">
+                        <img src="teck.jpg" alt="صورة المقالة 2">
+                        <p>محمد ميخازني ◀️ المدير التقني</p>
+                        <article class="article">
+                            <img src="dir.jpg" alt="صورة المقالة 2">
+                            <p>دحمان موسى ◀️ المدير الفني للفريق</p><br><br>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Footer Section -->
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Mouloudia Actualités. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Dark Mode Toggle Script -->
+    <script>
+       // Close the fullscreen menu when clicking outside of it or on close button
+        $(document).ready(function() {
+            // Toggle fullscreen menu
+            $('.navbar-toggler').click(function() {
+                $('#fullscreenMenu').toggleClass('open');
+            });
+
+            // Close the fullscreen menu when clicking outside of it
+            $(document).mouseup(function(e) {
+                var container = $("#fullscreenMenu");
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    container.removeClass('open');
+                }
+            });
+
+            // Close the fullscreen menu when close button is clicked
+            $('.close-btn').click(function() {
+                $('#fullscreenMenu').removeClass('open');
+            });
+        });
+
+        const body = document.body;
+        const navbarBrand = document.querySelector('.navbar-brand');
+
+        navbarBrand.addEventListener('click', function() {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+            }
+        });
+    </script>
+</body>
+</html>
