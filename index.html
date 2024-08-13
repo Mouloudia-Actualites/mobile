@@ -864,7 +864,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
      </section><br>
                   
 <!-- زر التثبيت -->
-<button id="installButton" style="display: none;">تثبيت التطبيق</button>
+   <button onclick="installPWA()">تثبيت التطبيق</button>
 
     <!-- Social Icons Section -->
     <section class="social-icons">
@@ -961,37 +961,34 @@ window.dataLayer = window.dataLayer || [];
         gtag('js', new Date());
 
         gtag('config', 'G-M69GBTEGBN');
-         let deferredPrompt;
+   let deferredPrompt;
 
-let deferredPrompt;
+        // Listen for the `beforeinstallprompt` event and save the event for later use
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the default mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Save the event for later use
+            deferredPrompt = e;
+        });
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  // منع ظهور نافذة التثبيت الافتراضية
-  e.preventDefault();
-  // حفظ الحدث بحيث يمكننا استدعاؤه لاحقًا
-  deferredPrompt = e;
-  // إظهار زر التثبيت
-  document.querySelector('#installButton').style.display = 'block';
-});
+        function installPWA() {
+            if (deferredPrompt) {
+                // Show the install prompt
+                deferredPrompt.prompt();
 
-document.querySelector('#installButton').addEventListener('click', () => {
-  // إظهار نافذة التثبيت
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the A2HS prompt');
-      } else {
-        console.log('User dismissed the A2HS prompt');
-      }
-      deferredPrompt = null;
-    });
-  }
-});
+                // Wait for the user's response
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
 
-window.addEventListener('appinstalled', () => {
-  console.log('PWA was installed');
-});
+                    // Clear the deferredPrompt so it can be used again if necessary
+                    deferredPrompt = null;
+                });
+            }
+        }
 
 
     </script>
