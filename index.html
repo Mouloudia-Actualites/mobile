@@ -861,7 +861,9 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
                 </div>
             </div>
         </div>
-     </section>
+     </section><br>
+                         <button onclick="installPWA()">تثبيت التطبيق</button><br><br>
+
     <!-- Social Icons Section -->
     <section class="social-icons">
         <div class="container">
@@ -957,6 +959,32 @@ window.dataLayer = window.dataLayer || [];
         gtag('js', new Date());
 
         gtag('config', 'G-M69GBTEGBN');
+         let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // منع عرض الموجه التلقائي
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // عرض زر التثبيت
+    const installButton = document.querySelector('button');
+    installButton.style.display = 'block';
+
+    installButton.addEventListener('click', () => {
+        // عرض موجه التثبيت
+        deferredPrompt.prompt();
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the A2HS prompt');
+            } else {
+                console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+        });
+    });
+});
+
     </script>
 </body>
 
