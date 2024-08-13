@@ -862,7 +862,36 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
             </div>
         </div>
      </section><br>
-                         <button onclick="installPWA()">تثبيت التطبيق</button><br><br>
+                    let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // منع ظهور نافذة التثبيت الافتراضية
+  e.preventDefault();
+  // حفظ الحدث بحيث يمكننا استدعاؤه لاحقًا
+  deferredPrompt = e;
+  // إظهار زر التثبيت
+  document.querySelector('#installButton').style.display = 'block';
+});
+
+document.querySelector('#installButton').addEventListener('click', () => {
+  // إظهار نافذة التثبيت
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the A2HS prompt');
+      } else {
+        console.log('User dismissed the A2HS prompt');
+      }
+      deferredPrompt = null;
+    });
+  }
+});
+
+window.addEventListener('appinstalled', () => {
+  console.log('PWA was installed');
+});
+
 
     <!-- Social Icons Section -->
     <section class="social-icons">
@@ -961,29 +990,36 @@ window.dataLayer = window.dataLayer || [];
         gtag('config', 'G-M69GBTEGBN');
          let deferredPrompt;
 
+let deferredPrompt;
+
 window.addEventListener('beforeinstallprompt', (e) => {
-    // منع عرض الموجه التلقائي
-    e.preventDefault();
-    deferredPrompt = e;
-
-    // عرض زر التثبيت
-    const installButton = document.querySelector('button');
-    installButton.style.display = 'block';
-
-    installButton.addEventListener('click', () => {
-        // عرض موجه التثبيت
-        deferredPrompt.prompt();
-
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the A2HS prompt');
-            } else {
-                console.log('User dismissed the A2HS prompt');
-            }
-            deferredPrompt = null;
-        });
-    });
+  // منع ظهور نافذة التثبيت الافتراضية
+  e.preventDefault();
+  // حفظ الحدث بحيث يمكننا استدعاؤه لاحقًا
+  deferredPrompt = e;
+  // إظهار زر التثبيت
+  document.querySelector('#installButton').style.display = 'block';
 });
+
+document.querySelector('#installButton').addEventListener('click', () => {
+  // إظهار نافذة التثبيت
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the A2HS prompt');
+      } else {
+        console.log('User dismissed the A2HS prompt');
+      }
+      deferredPrompt = null;
+    });
+  }
+});
+
+window.addEventListener('appinstalled', () => {
+  console.log('PWA was installed');
+});
+
 
     </script>
 </body>
