@@ -1,10 +1,10 @@
 {
   "name": "Mouloudia Actualités",
-  "short_name": "MCA",
+  "short_name": "MAD",
   "description": "أخبار مولودية الجزائر",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#f8f9fa",
+  "background_color": "#ffffff",
   "theme_color": "#212529",
   "icons": [
     {
@@ -18,5 +18,25 @@
       "type": "image/png"
     }
   ],
-  "id": "iliesso"
+  "id": "iliesso",
+  "dir": "auto",
+  "lang": "ar",
+  "orientation": "natural",
+  "display_override": [
+    "fullscreen",
+    "browser",
+    "window-controls-overlay",
+    "minimal-ui",
+    "standalone"
+  ],
+  "iarc_rating_id": "15",
+  "prefer_related_applications": true,
+  "categories": [
+    "education",
+    "sports",
+    "utilities"
+  ],
+  "edge_side_panel": {
+    "preferred_width": 0
+  }
 }
