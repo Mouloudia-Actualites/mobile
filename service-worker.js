@@ -1,5 +1,4 @@
 // service-worker.js
-
 // Cache name
 const CACHE_NAME = 'my-cache-v1';
 
