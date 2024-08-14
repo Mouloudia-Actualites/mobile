@@ -863,8 +863,8 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         </div>
      </section><br>
                   
-<!-- زر التثبيت -->
-   <button onclick="installPWA()">تثبيت التطبيق</button>
+<button id="install-button" style="display: none;">أضف إلى الشاشة الرئيسية</button>
+
 
     <!-- Social Icons Section -->
     <section class="social-icons">
@@ -961,36 +961,34 @@ window.dataLayer = window.dataLayer || [];
         gtag('js', new Date());
 
         gtag('config', 'G-M69GBTEGBN');
-   let deferredPrompt;
+{  let deferredPrompt;
 
-        // Listen for the `beforeinstallprompt` event and save the event for later use
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the default mini-infobar from appearing on mobile
-            e.preventDefault();
-            // Save the event for later use
-            deferredPrompt = e;
-        });
+window.addEventListener('beforeinstallprompt', (e) => {
+    // منع العرض التلقائي للتنبيه
+    e.preventDefault();
+    // حفظ الحدث لاستخدامه لاحقًا
+    deferredPrompt = e;
+    // عرض الزر للمستخدم
+    document.getElementById('install-button').style.display = 'block';
+});
 
-        function installPWA() {
-            if (deferredPrompt) {
-                // Show the install prompt
-                deferredPrompt.prompt();
-
-                // Wait for the user's response
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the install prompt');
-                    } else {
-                        console.log('User dismissed the install prompt');
-                    }
-
-                    // Clear the deferredPrompt so it can be used again if necessary
-                    deferredPrompt = null;
-                });
-            }
+document.getElementById('install-button').addEventListener('click', (e) => {
+    // إخفاء الزر
+    document.getElementById('install-button').style.display = 'none';
+    // عرض تنبيه التثبيت
+    deferredPrompt.prompt();
+    // التعامل مع اختيار المستخدم
+    deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+            console.log('المستخدم وافق على التثبيت');
+        } else {
+            console.log('المستخدم رفض التثبيت');
         }
+        deferredPrompt = null;
+    });
+});
 
-
+}
     </script>
 </body>
 
