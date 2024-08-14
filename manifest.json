@@ -20,12 +20,15 @@
   ],
   "share_target": {
     "action": "/share",
-    "method": "GET",
+   "method": "POST",
+"enctype": "application/x-www-form-urlencoded",
+
     "enctype": "multipart/form-data",
     "params": {
       "title": "Mouloudia Actualités",
       "text": "mm",
-      "url": "https://telecharge-app1.netlify.ap"
+"url": "https://telecharge-app1.netlify.app/"
+
     }
   },
   "iarc_rating_id": "14",
@@ -40,7 +43,7 @@
   },
   "dir": "auto",
   "lang": "ar",
-  "scope": "https://telecharge-app1.netlify.ap",
+  "scope": "https://telecharge-app1.netlify.app",
   "orientation": "any",
   "display_override": [
     "fullscreen",
