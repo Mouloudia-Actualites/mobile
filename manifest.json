@@ -20,15 +20,12 @@
   ],
   "share_target": {
     "action": "/share",
-   "method": "POST",
-"enctype": "application/x-www-form-urlencoded",
-
+    "method": "GET",
     "enctype": "multipart/form-data",
     "params": {
       "title": "Mouloudia Actualités",
       "text": "mm",
-"url": "https://telecharge-app1.netlify.app/"
-
+      "url": "https://telecharge-app1.netlify.app"
     }
   },
   "iarc_rating_id": "14",
@@ -52,5 +49,22 @@
     "minimal-ui",
     "standalone"
   ],
-  "id": "ILIESSO"
+  "id": "ILIESSO",
+  "screenshots": [
+    {
+      "src": "/screenshots/screenshot1.png",
+      "sizes": "640x480",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/screenshot2.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/screenshot3.png",
+      "sizes": "1920x1080",
+      "type": "image/png"
+    }
+  ]
 }
