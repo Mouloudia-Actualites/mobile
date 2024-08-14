@@ -1,0 +1,22 @@
+{
+  "name": "Mouloudia Actualités",
+  "short_name": "MCA",
+  "description": "أخبار مولودية الجزائر",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#212529",
+  "icons": [
+    {
+      "src": "mca-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "mca-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "id": "iliesso"
+}
