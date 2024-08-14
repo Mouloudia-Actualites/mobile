@@ -1,9 +1,9 @@
 {
-  "name": "My PWA App",
-  "short_name": "PWA",
-  "description": "A Progressive Web App example",
+  "name": "Mouloudia Actualités",
+  "short_name": "MCA",
+  "description": "اخبار المولودية",
   "start_url": "/index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "icons": [
@@ -20,13 +20,34 @@
   ],
   "share_target": {
     "action": "/share",
-    "method": "POST",
+    "method": "GET",
     "enctype": "multipart/form-data",
     "params": {
-      "title": "name",
-      "text": "description",
-      "url": "url"
+      "title": "Mouloudia Actualités",
+      "text": "mm",
+      "url": "https://telecharge-app1.netlify.ap"
     }
-  }
+  },
+  "iarc_rating_id": "14",
+  "prefer_related_applications": true,
+  "categories": [
+    "social",
+    "sports",
+    "utilities"
+  ],
+  "edge_side_panel": {
+    "preferred_width": 2
+  },
+  "dir": "auto",
+  "lang": "ar",
+  "scope": "https://telecharge-app1.netlify.ap",
+  "orientation": "any",
+  "display_override": [
+    "fullscreen",
+    "browser",
+    "window-controls-overlay",
+    "minimal-ui",
+    "standalone"
+  ],
+  "id": "ILIESSO"
 }
-
